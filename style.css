@@ -4,14 +4,12 @@ body {
 
 .title {
     border-radius:10px;
-    border: solid 3px #8cd2ff;
     width: 40%;
     margin:auto;
     margin-top:150px;
     text-align:center;
     font-family: "Host Grotesk", serif;
-    background-color: white;
-
+    color:white
 }
 
 #problemKey {
