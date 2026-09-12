@@ -9,9 +9,11 @@ async function fetchCodeforces() {
 }
 fetchCodeforces();
 
-const problemForm = document.getElementById("problemForm")
 const problemInput = document.getElementById("problemKey");
 const problemDisplay = document.getElementById("problemDisplay");
+const ratingInput = document.getElementById("showRating");
+
+let showingRating = ratingInput.checked;
 
 function getMatchValue(key, id, prefLen) {
     key = key.toLowerCase(); id = id.toLowerCase();
@@ -77,6 +79,8 @@ problemForm.addEventListener("submit",function(event) {
 
         const li = document.createElement('li');
         li.textContent = `${problem.contestId}${problem.index} ${problem.name} - `;
+
+        if(showingRating) li.textContent += `${problem.rating} - `
         
         const link = document.createElement('a');
         link.href = `https://codeforces.com/contest/${problem.contestId}/problem/${problem.index}`;
@@ -86,4 +90,8 @@ problemForm.addEventListener("submit",function(event) {
         li.append(link);
         problemDisplay.append(li);
     };
+});
+
+ratingInput.addEventListener("change", function(){
+    showingRating = ratingInput.checked;
 });
